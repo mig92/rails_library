@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   before_filter :authenticate_user!
 
   def index
@@ -8,6 +9,25 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def new
+    @user = User.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @user }
+    end
+  end
+
+  def create
+    @user = User.new(params[:user])
+
+    if @user.save
+      flash[:notice] = "Successfully created User." 
+      redirect_to root_path
+    else
+      render :action => 'new'
+    end
   end
   
   def update
