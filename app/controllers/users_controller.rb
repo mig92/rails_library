@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
   before_filter :authenticate_user!
+  load_and_authorize_resource
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
@@ -21,17 +21,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-
     if @user.save
       flash[:notice] = "Successfully created User." 
-      redirect_to root_path
+      redirect_to new_user_path
     else
       render :action => 'new'
     end
   end
   
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
+    # authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user], :as => :admin)
       redirect_to users_path, :notice => "User updated."

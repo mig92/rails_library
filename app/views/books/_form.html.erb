@@ -5,7 +5,7 @@
     <%= f.input :title %>
     <%= f.input :author %>
     <%= f.input :isbn %>
-    <%= f.input :format %>
+    <%= f.input :format, as: :radio_buttons, collection: ['Physical','Electronic']%>
   </div>
 
   <div class="form-actions">
