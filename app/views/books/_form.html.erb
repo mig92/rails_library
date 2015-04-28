@@ -5,10 +5,10 @@
     <%= f.input :title %>
     <%= f.input :author %>
     <%= f.input :isbn %>
-    <%= f.input :format, as: :radio_buttons, collection: ['Physical','Electronic']%>
+    <%= f.input :format, as: :radio_buttons, collection: ['Physical','Electronic'], :checked=> ('Physical')%>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class=> 'btn btn_primary'%>
   </div>
 <% end %>
