@@ -2,9 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :user_id %>
+    
+    <%= f.select :user_id, options_for_select(User.all.each{ |u| print '#{u.name}'}) %>
+    <% User.find_by_name('admin').id %>
+    <%= f.input :user_id, placeholder: '1' %>
+
     <%= f.input :book_id %>
-    <%= f.input :return_date %>
   </div>
 
   <div class="form-actions">

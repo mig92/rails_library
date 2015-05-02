@@ -17,6 +17,7 @@
     <td><%= book.author %></td>
     <td><%= book.isbn %></td>
     <td><%= book.format %></td>
+    para
     <td><%= link_to 'Show', book, :class=> 'btn btn-info'%></td>
     <%if @current_user.has_role? :admin or @current_user.has_role? :manager %>
     <td><%= link_to 'Edit', edit_book_path(book), :class=> 'btn btn-warning' %></td>
@@ -27,6 +28,6 @@
 </table>
 
 <br />
-<%if @current_user.has_role? :admin || @current_user.has_role? :manager%>
+<% if @current_user.has_role? :admin or @current_user.has_role? :manager %>
   <%= link_to 'New Book', new_book_path, :class=> 'btn btn-success btn-lg' %>
 <% end %>

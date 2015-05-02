@@ -1,4 +1,6 @@
 class LoansController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /loans
   # GET /loans.json
   def index
@@ -25,7 +27,7 @@ class LoansController < ApplicationController
   # GET /loans/new.json
   def new
     @loan = Loan.new
-
+    @loan.return_date = Date.today + 7
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @loan }
@@ -41,7 +43,7 @@ class LoansController < ApplicationController
   # POST /loans.json
   def create
     @loan = Loan.new(params[:loan])
-
+    @loan.return_date = Date.today + 7
     respond_to do |format|
       if @loan.save
         format.html { redirect_to @loan, notice: 'Loan was successfully created.' }

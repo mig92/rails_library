@@ -9,7 +9,7 @@ class Ability
       can :manage, Book
       can :manage, Loan
     else
-      can :create, Loan
+      can :read, Loan
       can :read, Book
     end
     # can :manage, :all if user.has_role? == "admin"
