@@ -1,21 +1,26 @@
-<h1>Listing loans</h1>
+<h1>Listing Loans</h1>
 
 <table class="table">
   <tr>
+    <th>Return date</th>
     <th>User</th>
     <th>Book</th>
-    <th>Return date</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @loans.each do |loan| %>
+  <% if loan.return_date == '9999-09-09'.to_date %>
+    <% date = 'Unlimited' %>
+  <% else %>
+    <% date = loan.return_date.strftime('%d-%m-%Y') %>
+  <% end %>
   <tr>
-    <td><%= User.find(loan.user_id).name %></td>
-    <td><%= Book.find(loan.book_id).title %></td>
-    <td><%= loan.return_date.strftime('%d-%m-%Y')%></td>
-    <td><%= link_to 'Show', loan, :class=> 'btn btn-info'%></td>
+    <td><%= date %></td>
+    <td><%= loan.user.name %></td>
+    <td><%= loan.book.title %></td>
+    <td><%= link_to 'Show', loan, :class=> 'btn btn-info' %></td>
     <%if @current_user.has_role? :admin or @current_user.has_role? :manager %>
       <td><%= link_to 'Edit', edit_loan_path(loan), :class=> 'btn btn-warning' %></td>
       <td><%= link_to 'Destroy', loan, :class=> 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,6 +31,6 @@
 
 <br />
 
-<%if @current_user.has_role? :admin or @current_user.has_role? :manager %>
+<% if @current_user.has_role? :admin or @current_user.has_role? :manager %>
   <%= link_to 'New Loan', new_loan_path, :class=> 'btn btn-success' %>
 <% end %>

@@ -1,8 +1,8 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
-  resources :books
-
-
   resources :loans
+
+
+  resources :books
 
 
   authenticated :user do

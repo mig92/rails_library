@@ -27,7 +27,7 @@ class LoansController < ApplicationController
   # GET /loans/new.json
   def new
     @loan = Loan.new
-    @loan.return_date = Date.today + 7
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @loan }
@@ -43,7 +43,11 @@ class LoansController < ApplicationController
   # POST /loans.json
   def create
     @loan = Loan.new(params[:loan])
-    @loan.return_date = Date.today + 7
+    if (Book.find(params[:loan]['book_id']).format == 'Physical')
+      @loan.return_date = Date.today + 7
+    else 
+      @loan.return_date = '9999-09-09'.to_date
+    end
     respond_to do |format|
       if @loan.save
         format.html { redirect_to @loan, notice: 'Loan was successfully created.' }

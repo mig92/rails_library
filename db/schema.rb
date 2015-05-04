@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150427140523) do
+ActiveRecord::Schema.define(:version => 20150504150715) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -23,12 +23,15 @@ ActiveRecord::Schema.define(:version => 20150427140523) do
   end
 
   create_table "loans", :force => true do |t|
+    t.date     "return_date"
     t.integer  "user_id"
     t.integer  "book_id"
-    t.date     "return_date"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "loans", ["book_id"], :name => "index_loans_on_book_id"
+  add_index "loans", ["user_id"], :name => "index_loans_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

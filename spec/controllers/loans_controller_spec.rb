@@ -23,7 +23,7 @@ describe LoansController do
   # This should return the minimal set of attributes required to create a valid
   # Loan. As you add validations to Loan, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "user_id" => "1" } }
+  let(:valid_attributes) { { "return_date" => "2015-05-04" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe LoansController do
       it "assigns a newly created but unsaved loan as @loan" do
         # Trigger the behavior that occurs when invalid params are submitted
         Loan.any_instance.stub(:save).and_return(false)
-        post :create, {:loan => { "user_id" => "invalid value" }}, valid_session
+        post :create, {:loan => { "return_date" => "invalid value" }}, valid_session
         assigns(:loan).should be_a_new(Loan)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Loan.any_instance.stub(:save).and_return(false)
-        post :create, {:loan => { "user_id" => "invalid value" }}, valid_session
+        post :create, {:loan => { "return_date" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe LoansController do
         # specifies that the Loan created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Loan.any_instance.should_receive(:update_attributes).with({ "user_id" => "1" })
-        put :update, {:id => loan.to_param, :loan => { "user_id" => "1" }}, valid_session
+        Loan.any_instance.should_receive(:update_attributes).with({ "return_date" => "2015-05-04" })
+        put :update, {:id => loan.to_param, :loan => { "return_date" => "2015-05-04" }}, valid_session
       end
 
       it "assigns the requested loan as @loan" do
@@ -128,7 +128,7 @@ describe LoansController do
         loan = Loan.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Loan.any_instance.stub(:save).and_return(false)
-        put :update, {:id => loan.to_param, :loan => { "user_id" => "invalid value" }}, valid_session
+        put :update, {:id => loan.to_param, :loan => { "return_date" => "invalid value" }}, valid_session
         assigns(:loan).should eq(loan)
       end
 
@@ -136,7 +136,7 @@ describe LoansController do
         loan = Loan.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Loan.any_instance.stub(:save).and_return(false)
-        put :update, {:id => loan.to_param, :loan => { "user_id" => "invalid value" }}, valid_session
+        put :update, {:id => loan.to_param, :loan => { "return_date" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

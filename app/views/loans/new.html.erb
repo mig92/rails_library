@@ -2,9 +2,9 @@
 
 <div class="form-inputs">
    <p>Return Date :</p>
-    <%= Date.today + 7 %>
+    <strong><%= Date.today + 7 %><br><br></strong>
 </div>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', loans_path %>
+<%= link_to 'Back', loans_path, :class=> 'btn btn-success' %>
