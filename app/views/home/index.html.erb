@@ -1,11 +1,16 @@
 
 <% if user_signed_in? %>
-    <h3>Home</h3>
-    <% @users.each do |user| %>
-      <p>User: <%=link_to user.name, user %></p>
+    <% if current_user.has_role? :admin %>
+        <%= render 'admin' %>
+    <% elsif current_user.has_role? :manager %>
+        <%= render 'manager' %>
+    <% else %>
+        <%= render 'reader' %>
     <% end %>
-    <h3>Books</h3>
-    <% @books.each do |book| %>
-      <p>Book: <%=link_to book.title, book%></p> 
-    <% end %>
+<% else %>
+    <h2>Sign up to access our services</h2>
+    <h3>Available books</h3>
+    <strong>More than <%= @books.count - 1 %> units</strong>
+    <h3>Users</h3>
+    <strong>More than <%= @users.count - 1 %> already users trust us</strong>
 <% end %>

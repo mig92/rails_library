@@ -1,0 +1,20 @@
+<h3>Users</h3>
+<p>Registered Users: <strong><%= @users.count %></strong>  <p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>Last sign in at</th>
+    </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td> <%=link_to user.name, user %> </td>
+      <td> <%= user.last_sign_in_at.strftime('%a - %d-%m-%Y - %H:%M %Z')  %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render 'manager' %>
+<%= render 'reader' %>
