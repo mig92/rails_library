@@ -8,6 +8,7 @@ class Ability
     elsif user.has_role? :manager
       can :manage, Book
       can :manage, Loan
+      can :manage, User
     else
       can :read, Loan
       can :read, Book
