@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(params[:book])
-
+    @book.borrowed = false
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
@@ -75,6 +75,10 @@ class BooksController < ApplicationController
   # DELETE /books/1.json
   def destroy
     @book = Book.find(params[:id])
+    loans = Loan.find_all_by_book_id(@book.id)
+    loans.each do |loan|
+      loan.destroy
+    end
     @book.destroy
 
     respond_to do |format|

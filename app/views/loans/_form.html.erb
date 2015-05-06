@@ -2,8 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.association :book %>
+    <%= f.association :user%>
+    <%= f.association :book, :collection => Book.where('borrowed' => false) %>
   </div>
 
   <div class="form-actions">

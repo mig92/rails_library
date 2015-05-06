@@ -51,6 +51,10 @@ class UsersController < ApplicationController
 
   def helper_destroy
     user = User.find(params[:id])
+    loans = Loan.find_all_by_user_id(user.id)
+    loans.each do |loan|
+      loan.destroy
+    end
       unless user == current_user
         user.destroy
         redirect_to users_path, :notice => "User deleted."

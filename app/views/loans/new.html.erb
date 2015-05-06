@@ -2,7 +2,7 @@
 
 <div class="form-inputs">
    <p>Return Date :</p>
-    <strong><%= Date.today + 7 %><br><br></strong>
+    <strong><%= (Date.today + 7).strftime('%d - %m - %Y') %><br><br></strong>
 </div>
 
 <%= render 'form' %>

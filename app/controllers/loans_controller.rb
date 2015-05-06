@@ -5,7 +5,6 @@ class LoansController < ApplicationController
   # GET /loans.json
   def index
     @loans = Loan.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @loans }
@@ -43,7 +42,9 @@ class LoansController < ApplicationController
   # POST /loans.json
   def create
     @loan = Loan.new(params[:loan])
-    if (Book.find(params[:loan]['book_id']).format == 'Physical')
+    book = Book.find(params[:loan]['book_id'])
+    if book.format == 'Physical'
+      helper_book_true book
       @loan.return_date = Date.today + 7
     else 
       @loan.return_date = '9999-09-09'.to_date
@@ -59,11 +60,33 @@ class LoansController < ApplicationController
     end
   end
 
+  def helper_book_false book
+    book.borrowed = false
+    book.save
+  end
+
+  def helper_book_true book
+    book.borrowed = true
+    book.save
+  end
+
   # PUT /loans/1
   # PUT /loans/1.json
   def update
     @loan = Loan.find(params[:id])
-
+    book = Book.find(@loan.book_id)
+    new_book = Book.find(params[:loan]['book_id'])
+ 
+    if @loan.book_id != new_book.id
+      if new_book.format == 'Physical'
+        @loan.return_date = Date.today + 7
+        helper_book_true new_book
+      else
+        @loan.return_date = '9999-09-09'.to_date
+        helper_book_false book
+      end
+      helper_book_false book
+    end
     respond_to do |format|
       if @loan.update_attributes(params[:loan])
         format.html { redirect_to @loan, notice: 'Loan was successfully updated.' }
@@ -79,6 +102,7 @@ class LoansController < ApplicationController
   # DELETE /loans/1.json
   def destroy
     @loan = Loan.find(params[:id])
+    helper_book_false Book.find(@loan.book_id)
     @loan.destroy
 
     respond_to do |format|

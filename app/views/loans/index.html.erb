@@ -14,7 +14,7 @@
   <% if loan.return_date == '9999-09-09'.to_date %>
     <% date = 'Unlimited' %>
   <% else %>
-    <% date = loan.return_date.strftime('%d-%m-%Y') %>
+    <% date = loan.return_date.strftime('%d - %m-  %Y') %>
   <% end %>
   <tr>
     <td><%= date %></td>
