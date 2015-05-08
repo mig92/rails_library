@@ -1,8 +1,8 @@
 
 <% if user_signed_in? %>
-    <% if current_user.has_role? :admin %>
+    <% if current_user.admin? %>
         <%= render 'admin' %>
-    <% elsif current_user.has_role? :manager %>
+    <% elsif current_user.manager? %>
         <%= render 'manager' %>
     <% else %>
         <%= render 'reader' %>

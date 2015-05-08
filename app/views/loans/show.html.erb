@@ -23,6 +23,6 @@
 
 <%= link_to 'Close', loans_path, :class=> 'btn btn-success'%> 
 
-<%if @current_user.has_role? :admin or :manager %>
+<%if can? :update, Loan %>
     <%= link_to 'Edit', edit_loan_path(@loan), :class=> 'btn btn-warning' %>
 <% end %>

@@ -12,4 +12,4 @@ GMAIL_PASSWORD: ojuanisa
 ADMIN_NAME: admin
 ADMIN_EMAIL: admin@example.com
 ADMIN_PASSWORD: administrator
-ROLES: [admin,manager,reader]
+ROLE: admin

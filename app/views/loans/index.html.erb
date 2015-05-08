@@ -21,8 +21,10 @@
     <td><%= loan.user.name %></td>
     <td><%= loan.book.title %></td>
     <td><%= link_to 'Show', loan, :class=> 'btn btn-info' %></td>
-    <%if @current_user.has_role? :admin or @current_user.has_role? :manager %>
+    <%if can? :update, Loan %>
       <td><%= link_to 'Edit', edit_loan_path(loan), :class=> 'btn btn-warning' %></td>
+    <% end %>
+    <%if can? :destroy, Loan %>
       <td><%= link_to 'Destroy', loan, :class=> 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </tr>
@@ -31,6 +33,6 @@
 
 <br />
 
-<% if @current_user.has_role? :admin or @current_user.has_role? :manager %>
+<% if can? :create, Loan %>
   <%= link_to 'New Loan', new_loan_path, :class=> 'btn btn-success' %>
 <% end %>

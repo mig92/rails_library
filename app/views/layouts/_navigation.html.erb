@@ -13,13 +13,17 @@
     <li>
     <%= link_to 'Edit account', edit_user_registration_path %>
     </li>
-  <% if current_user.has_role? :admin or current_user.has_role :manager %>
+  <% if can? :manage, User %>
       <li>
       <%= link_to 'Manage Users', users_path %>
       </li>
+  <% end %>
+  <% if can? :manage, Book %>
       <li>
       <%= link_to 'Manage Books', books_path %>
       </li>
+  <% end %>
+  <% if can? :manage, Loan%>
       <li>
       <%= link_to 'Manage Loans', loans_path %>
       </li>
