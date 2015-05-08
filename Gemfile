@@ -10,7 +10,7 @@ end
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'cancan'
-gem 'devise'
+gem 'devise', '~> 3.2.3'
 gem 'figaro'
 gem 'rolify'
 gem 'simple_form'

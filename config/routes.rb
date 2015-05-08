@@ -15,6 +15,5 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
   end
-  resources :users, :controller => "users"
-  #resources :users
+  resources :users, path: "custom_user"
 end
