@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150508161653) do
+ActiveRecord::Schema.define(:version => 20150509095320) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20150508161653) do
     t.integer  "book_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "status"
   end
 
   add_index "loans", ["book_id"], :name => "index_loans_on_book_id"

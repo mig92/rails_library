@@ -10,7 +10,7 @@
     <% @users.each do |user| %>
     <tr>
       <td> <%=link_to user.name, user %> </td>
-      <td> <%= user.last_sign_in_at.strftime('%a - %d-%m-%Y - %H:%M %Z')  %></td>
+      <td> <%= user.last_sign_in_at  %></td>
     </tr>
     <% end %>
   </tbody>

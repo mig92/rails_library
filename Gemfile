@@ -14,8 +14,8 @@ gem 'devise', '~> 3.2.3'
 gem 'figaro'
 gem 'rolify'
 gem 'simple_form'
-group :development do
   gem 'better_errors'
+group :development do
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'quiet_assets'
 end
