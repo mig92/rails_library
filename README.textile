@@ -1,4 +1,3 @@
-h1. !http://railsapps.github.io/images/rails-36x36.jpg(Rails Application for Devise with RSpec and Cucumber)! Rails 4.1
 
 For a Rails 4.1 example application for Devise with authorization, plus Bootstrap, see:
 
