@@ -23,7 +23,7 @@
       <%= link_to 'Manage Books', books_path %>
       </li>
   <% end %>
-  <% if can? :manage, Loan %>
+  <% if can? :read, Loan %>
       <li>
       <%= link_to 'Manage Loans', loans_path %>
       </li>

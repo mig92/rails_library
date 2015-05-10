@@ -1,0 +1,47 @@
+<h2>My Active Loans</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Created At</th>
+    <th>Return date</th>
+    <th>Book</th>
+  </tr>
+
+<% @myloans_active.each do |loan| %>
+  <% if loan.return_date == '9999-09-09'.to_date %>
+    <% date = 'Unlimited' %>
+  <% else %>
+    <% date = loan.return_date.strftime('%d - %m - %Y') %>
+  <% end %>
+  <tr>
+    <td><%= loan.created_at.strftime('%d - %m - %Y') %></td>
+    <td><%= date %></td>
+    <td><%= link_to loan.book.title, loan %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+<h2>My Old Loans</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Created At</th>
+    <th>Returned date</th>
+    <th>Book</th>
+  </tr>
+
+<% @myloans_delivered.each do |loan| %>
+  <% if loan.return_date == '9999-09-09'.to_date %>
+    <% date = ' Unlimited ' %>
+  <% else %>
+    <% date = loan.return_date.strftime('%d - %m - %Y') %>
+  <% end %>
+  <tr>
+    <td><%= loan.created_at.strftime('%d - %m - %Y') %></td>
+    <td><%= date %></td>
+    <td><%= link_to loan.book.title, loan %></td>
+  </tr>
+<% end %>
+</table>

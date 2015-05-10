@@ -1,18 +1,20 @@
-<h3>My Loans</h3>
-<p>Active Loans: <strong><%= @loans.count %></strong>  <p>
-<p>Old Loans: <strong><%= @loans.count %></strong>  <p>
+<h3>Loans Summary</h3>
+<% actives = @myloans_active.count %>
+<% olds = @myloans_delivered.count %>
+<% total = actives + olds %>
+<% @loans.count %>
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th> Title </th>
-      <th> Borrowed since</th>
+      <th> Active </th>
+      <th> Olds </th>
+      <th> Total </th>
     </thead>
   <tbody>
-    <% @loans.each do |loan| %>
     <tr>
-      <td> <%=link_to @books.find{|b| b.id == loan.book_id}.title, loan %> </td>
-      <td> <%= loan.created_at.strftime('%a - %d-%m-%Y - %H:%M %Z') %></td>
+      <td> <%=  actives %> </td>
+      <td> <%=  olds %> </td>
+      <td> <%=  total %> </td> 
     </tr>
-    <% end %>
   </tbody>
 </table>

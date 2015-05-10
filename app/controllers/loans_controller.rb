@@ -4,8 +4,9 @@ class LoansController < ApplicationController
 
 
   def index
-
     @loans = Loan.all
+    @myloans_active = Loan.where('status' => 'Active', 'user_id' => current_user.id)
+    @myloans_delivered = Loan.where('status' => 'Delivered', 'user_id' => current_user.id)
     @loans_active = Loan.where('status' => 'Active')
     @loans_delivered = Loan.where('status' => 'Delivered')
     respond_to do |format|

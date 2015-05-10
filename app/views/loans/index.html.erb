@@ -1,8 +1,12 @@
+<% if current_user.reader? %>
+  <%= render 'myloans' %>
+<% else %>
+  <%= render 'active' %>
+  <%= render 'delivered' %>
 
-
-<%= render 'active' %>
-<%= render 'delivered' %>
-
-<% if can? :create, Loan %>
-  <%= link_to 'New Loan', new_loan_path, :class=> 'btn btn-success' %>
+  <% if can? :create, Loan %>
+    <%= link_to 'New Loan', new_loan_path, :class=> 'btn btn-success' %>
+  <% end %>
 <% end %>
+
+
