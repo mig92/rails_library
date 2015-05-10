@@ -19,11 +19,11 @@ class User < ActiveRecord::Base
   end
 
   def manager?
-    role == 'teacher'
+    role == 'manager'
   end
 
   def reader?
-    role == 'student'
+    role == 'reader'
   end
 
   private

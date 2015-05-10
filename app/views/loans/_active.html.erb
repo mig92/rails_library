@@ -1,0 +1,36 @@
+<h2>Active Loans</h2>
+
+<table class="table">
+  <tr>
+    <th>Return date</th>
+    <th>User</th>
+    <th>Book</th>
+    <th>Created At</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @loans_active.each do |loan| %>
+  <% if loan.return_date == '9999-09-09'.to_date %>
+    <% date = 'Unlimited' %>
+  <% else %>
+    <% date = loan.return_date.strftime('%d - %m - %Y') %>
+  <% end %>
+  <tr>
+    <td><%= date %></td>
+    <td><%= loan.user.name %></td>
+    <td><%= loan.book.title %></td>
+    <td><%= loan.created_at.strftime('%d - %m - %Y') %></td>
+    <td><%= link_to 'Show', loan, :class=> 'btn btn-info' %></td>
+    <%if can? :update, Loan %>
+      <td><%= link_to 'Edit', edit_loan_path(loan), :class=> 'btn btn-warning' %></td>
+    <% end %>
+    <%if can? :destroy, Loan %>
+      <td><%= link_to 'Destroy', loan, :class=> 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />

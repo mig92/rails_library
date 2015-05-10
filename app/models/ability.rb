@@ -8,9 +8,9 @@ class Ability
     elsif user.manager?
       can :manage, Book
       can :manage, Loan
-      can :manage, User
-    else
-      can :read, Loan
+      can :manage, User, :role => 'reader'
+    elsif user.reader?
+      can :read, Loan, :user_id => user.id
       can :read, Book
     end
     # can :manage, :all if user.has_role? == "admin"

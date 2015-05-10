@@ -1,0 +1,13 @@
+<%= simple_form_for(@loan) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user%>
+    <%= f.association :book, :collection => Book.where('borrowed' => false) %>
+    <%= f.input :status, as: :radio_buttons, collection: ['Active','Delivered'], :checked=> @loan.status %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class=> 'btn btn-warning' %>
+  </div>
+<% end %>

@@ -20,6 +20,11 @@
   <%= @loan.book.title %>
 </p>
 
+<p>
+  <b>Status:</b>
+  <%= @loan.status %>
+</p>
+
 
 <%= link_to 'Close', loans_path, :class=> 'btn btn-success'%> 
 

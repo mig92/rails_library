@@ -1,10 +1,13 @@
 class LoansController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
-  # GET /loans
-  # GET /loans.json
+
+
   def index
+
     @loans = Loan.all
+    @loans_active = Loan.where('status' => 'Active')
+    @loans_delivered = Loan.where('status' => 'Delivered')
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @loans }
