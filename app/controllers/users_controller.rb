@@ -35,12 +35,11 @@ class UsersController < ApplicationController
 
   
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to edit_user_path
+      redirect_to users_path, :notice => "User updated."
     else
-      redirect_to :action => 'edit'
+      render :action => 'edit'
     end
   end
     
