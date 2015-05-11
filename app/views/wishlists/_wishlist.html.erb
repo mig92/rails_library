@@ -1,0 +1,23 @@
+<h1>Listing Wish List</h1>
+
+<table class="table">
+  <tr>
+    <th>User</th>
+    <th>Book</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @wishlists.each do |wishlist| %>
+  <tr>
+    <td><%= wishlist.user.name %></td>
+    <td><%= wishlist.book.title %></td>
+    <td><%= link_to 'Show', wishlist, :class=> 'btn btn-info' %></td>
+    <td><%= link_to 'Edit', edit_wishlist_path(wishlist), :class=> 'btn btn-warning' %></td>
+    <td><%= link_to 'Destroy', wishlist, :class=> 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

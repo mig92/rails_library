@@ -1,25 +1,10 @@
-<h1>Listing wishlists</h1>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th>Book</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @wishlists.each do |wishlist| %>
-  <tr>
-    <td><%= wishlist.user %></td>
-    <td><%= wishlist.book %></td>
-    <td><%= link_to 'Show', wishlist %></td>
-    <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
-    <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% if current_user.reader? %>
+  <%= render 'mywishlist' %>
+<% else %>
+  <%= render 'wishlist' %>
 <% end %>
-</table>
 
-<br />
+<% if can? :create, Wishlist %>
+  <%= link_to 'New Wish', new_wishlist_path, :class=> 'btn btn-success' %>
+<% end %>
 
-<%= link_to 'New Wishlist', new_wishlist_path %>

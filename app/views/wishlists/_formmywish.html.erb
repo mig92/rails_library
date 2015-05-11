@@ -2,11 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
+    <%= f.association :user, :default => @current_user.id, :disabled=> true %>
     <%= f.association :book %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, :class=> 'btn btn-warning'%>
+    <%= f.button :submit, :class=> 'btn btn-warning' %>
   </div>
 <% end %>

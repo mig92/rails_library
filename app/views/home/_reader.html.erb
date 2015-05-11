@@ -3,6 +3,11 @@
 <% olds = @myloans_delivered.count %>
 <% total = actives + olds %>
 <% @loans.count %>
+<% if @mywishlists == nil %>
+  <% mywishlists = 0 %>
+<% else %>
+  <% mywishlists = @mywishlists.count %>
+<% end %>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -18,3 +23,9 @@
     </tr>
   </tbody>
 </table>
+
+<br/>
+
+<h3> Wishes Summary </h3>
+
+<%= mywishlists %>
