@@ -73,22 +73,6 @@ It is a good idea to use "rvm":https://rvm.io/, the Ruby Version Manager, and cr
 
 If you choose to create a GitHub repository, the generator will prompt you for a GitHub username and password.
 
-h4. Troubleshooting
-
-If you get an error "OpenSSL certificate verify failed" or "Gem::RemoteFetcher::FetchError: SSL_connect" see the article "OpenSSL errors and Rails":http://railsapps.github.io/openssl-certificate-verify-failed.html.
-
-If you get an error like this:
-
-<pre>
-Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
-    composer  Running 'after bundler' callbacks.
-The template [...] could not be loaded.
-Error: You have already activated ..., but your Gemfile requires ....
-Using bundle exec may solve this.
-</pre>
-
-It's due to conflicting gem versions. See the article "Rails Error: “You have already activated (…)”":http://railsapps.github.io/rails-error-you-have-already-activated.html.
-
 h3. Edit the README
 
 If you're storing the app in a GitHub repository, please edit the README files to add a description of the app and your contact info. If you don't change the README, people will think I am the author of your version of the application.
