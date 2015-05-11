@@ -240,34 +240,31 @@ Alejandro Ferro Bejerano and Miguel Ángel Garrido Astilleros adapted this proje
 
 h2. Web System Development specification
 
-Laboratory Assignment
-Web Systems Development
-The main goal of this exercise is to develop a web application with Ruby on Rails in which we are
-going to implement a web system for managing a library.
-Through the exercise solving is advisable to use software development good practices, like
-version control software (like git or mercurial), code hosting (like github or bitbucket) or TDD
-(Test Driven Development, using RSpec).
+h3. Laboratory Assignment
+
+The main goal of this exercise is to develop a web application with Ruby on Rails in which we are going to implement a web system for managing a library.
+Through the exercise solving is advisable to use software development good practices, like version control software (like git or mercurial), code hosting (like github or bitbucket) or TDD (Test Driven Development, using RSpec).
+
 The students must handle the solution to the laboratory professor and show him the system
 working.
-Last day to fulfil the lab requirements is May 5th, 2015
-Library Web App
-We want to develop a Library Management Web Application in Ruby on Rails. This app should
-fulfil the following requirements:
- It should be accessible from any web browser
- Application should allow the user the management (CRUD operations) of:
-o Books and publications
-o Publications Borrowing and Circulation
-o Readers and Users
- The app should have a User Management module, which permits users to access the
-system by authenticating themselves and determining user roles:
-o Administrator: Can manage users (admins, managers and readers), roles, books
-and loans
-o Manager: Can manage readers, books and loans
-o Reader: Can list its current and past loans, and also can manage a wish list
- Publications:
-o Can be borrowed by only one reader if they are physical books
-o Can be borrowed by several readers if they are in electronic form
-o We should keep a history of loans
+
+h3. Library Web App
+
+We want to develop a Library Management Web Application in Ruby on Rails. This app should fulfil the following requirements:
+
+- It should be accessible from any web browser
+- Application should allow the user the management (CRUD operations) of:
+    * Books and publications
+    * Publications Borrowing and Circulation
+    * Readers and Users
+- The app should have a User Management module, which permits users to access the system by authenticating themselves and determining user roles:
+    * Administrator: Can manage users (admins, managers and readers), roles, books and loans.
+    * Manager: Can manage readers, books and loans.
+    * Reader: Can list its current and past loans, and also can manage a wish list.
+- Publications:
+    * Can be borrowed by only one reader if they are physical books
+    * Can be borrowed by several readers if they are in electronic form
+    * We should keep a history of loans
 You are asked to develop a web app to solve the proposed problem.
 
 h2. Useful Links
