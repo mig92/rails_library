@@ -3,7 +3,11 @@
 
   <div class="form-inputs">
     <%= f.association :user%>
+<<<<<<< HEAD
     <%= f.association :book, :collection => (Book.where('borrowed' => false).push Book.find(@loan.book_id)).uniq %>
+=======
+    <%= f.association :book, :collection=> Book.where('borrowed' => false).push Book.find(@loan.book_id) %>
+>>>>>>> upstream/master
     <%= f.input :status, as: :radio_buttons, collection: ['Active','Delivered'], :checked=> @loan.status %>
   </div>
 

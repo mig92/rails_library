@@ -18,6 +18,11 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -27,14 +32,15 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+
   
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to users_path, :notice => "User updated."
+      redirect_to edit_user_path
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to :action => 'edit'
     end
   end
     
@@ -45,6 +51,10 @@ class UsersController < ApplicationController
   def helper_destroy
     user = User.find(params[:id])
     loans = Loan.find_all_by_user_id(user.id)
+    wishes = Wishlist.find_all_by_user_id(user.id)
+    wishes.each do |wish|
+      wish.destroy
+    end
     loans.each do |loan|
       loan.destroy
     end

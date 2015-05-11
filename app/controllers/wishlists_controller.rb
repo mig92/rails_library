@@ -1,9 +1,11 @@
 class WishlistsController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /wishlists
   # GET /wishlists.json
   def index
     @wishlists = Wishlist.all
-
+    @mywishlists = Wishlist.where('user_id' => current_user.id)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @wishlists }
