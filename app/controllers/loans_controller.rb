@@ -78,7 +78,7 @@ class LoansController < ApplicationController
   # PUT /loans/1.json
   def update
     @loan = Loan.find(params[:id])
-    book = Book.find(@loan.book_id)
+    book = Book.find(Loan.find(@loan.id).book_id)
     new_book = Book.find(params[:loan]['book_id'])
  
     if @loan.book_id != new_book.id
@@ -89,8 +89,8 @@ class LoansController < ApplicationController
         @loan.return_date = '9999-09-09'.to_date
         helper_book_false book
       end
-      helper_book_false book
     end
+    helper_book_false book
     respond_to do |format|
       if @loan.update_attributes(params[:loan])
         format.html { redirect_to @loan, notice: 'Loan was successfully updated.' }
