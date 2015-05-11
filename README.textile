@@ -249,16 +249,9 @@ If you add functionality to this application, create an alternative implementati
 
 h2. Credits
 
-Daniel Kehoe implemented the application and wrote the tutorial.
+Daniel Kehoe implemented the first version of the aplication.
 
-Is the app useful to you? Follow the project on Twitter: "@rails_apps":http://twitter.com/rails_apps
-and tweet some praise. I'd love to know you were helped out by what I've put together.
-
-h2. MIT License
-
-"MIT License":http://www.opensource.org/licenses/mit-license
-
-Copyright © 2012-13 Daniel Kehoe
+Alejandro Ferro Bejerano and Miguel Ángel Garrido Astilleros adapted this project to the specification of the practise subject "Web System Development"
 
 h2. Useful Links
 
