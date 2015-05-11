@@ -1,7 +1,5 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
   resources :wishlists
-
-
   resources :loans
   resources :books
 

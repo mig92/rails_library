@@ -76,6 +76,10 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     loans = Loan.find_all_by_book_id(@book.id)
+    wishes = Wishlist.find_all_by_book_id(@book.id)
+    wishes.each do |wish|
+      wish.destroy
+    end
     loans.each do |loan|
       loan.destroy
     end

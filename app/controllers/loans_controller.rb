@@ -85,6 +85,7 @@ class LoansController < ApplicationController
       if new_book.format == 'Physical'
         @loan.return_date = Date.today + 7
         helper_book_true new_book
+        helper_book_false book
       else
         @loan.return_date = '9999-09-09'.to_date
         helper_book_false book
