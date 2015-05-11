@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @readers = User.where('role' => 'reader')
   end
 
   def show
