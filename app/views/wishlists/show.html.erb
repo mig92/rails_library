@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @wishlist.user.name %>
+</p>
+
+<p>
+  <b>Book:</b>
+  <%= @wishlist.book.title %>
+</p>
+
+<p>
+  <b>Created:</b>
+  <%= @wishlist.created_at.strftime('%a - %d-%m-%Y - %H:%M %Z')  %>
+</p>
+
+
+<%= link_to 'Edit', edit_wishlist_path(@wishlist), :class=> 'btn btn-warning' %>
+<%= link_to 'Close', wishlists_path, :class=> 'btn btn-success' %>

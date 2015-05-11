@@ -1,0 +1,8 @@
+<h1>Editing Wish</h1>
+<% if @current_user.reader? %>
+    <%= render 'formmywish' %>
+<% else %>
+    <%= render 'form' %>
+<% end %>
+
+<%= link_to 'Back', wishlists_path, :class=> 'btn btn-success' %>

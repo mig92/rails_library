@@ -1,0 +1,10 @@
+<% if current_user.reader? %>
+  <%= render 'mywishlist' %>
+<% else %>
+  <%= render 'wishlist' %>
+<% end %>
+
+<% if can? :create, Wishlist %>
+  <%= link_to 'New Wish', new_wishlist_path, :class=> 'btn btn-success' %>
+<% end %>
+
