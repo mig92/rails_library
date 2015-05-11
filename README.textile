@@ -10,6 +10,7 @@ This Rails 3.2 example application shows how to use "Devise":https://github.com/
 
 !http://railsapps.github.io/images/rails3-bootstrap-devise-cancan.png(Rails Application for Devise with CanCan and Twitter Bootstrap)!
 
+!http://cdns2.freepik.com/foto-gratis/estilo-poco-vector-libro-gordo_279-9648.jpg
 h2. What Is Implemented -- and What Is Not
 
 This is a demonstration application that allows you to visit a home page and see a list of users. Devise provides user management so a visitor can register with an email address and password and create an account. Devise provides authentication so access to the site can be limited to users who are registered and logged in. CanCan is used for authorization, limiting access to only an administrator for designated pages. An administrative dashboard allows the administrator to delete any user or change a user's role.
