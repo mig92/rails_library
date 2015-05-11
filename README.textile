@@ -1,22 +1,3 @@
-
-For a Rails 4.1 example application for Devise with authorization, plus Bootstrap, see:
-
-* "rails-devise-pundit":https://github.com/RailsApps/rails-devise-pundit
-
-Tutorials are available for Devise:
-
-* "Rails Devise Tutorial":http://railsapps.github.io/rails-devise/
-
-h4. Similar Examples and Tutorials
-
-This is one in a series of Rails example apps and tutorials from the "RailsApps Project":http://railsapps.github.io/. See a list of additional "Rails examples, tutorials, and starter apps":http://railsapps.github.io/rails-examples-tutorials.html. Related example applications may be useful:
-
-* "Learn Rails":https://github.com/RailsApps/learn-rails companion to the book "Learn Ruby on Rails":http://learn-rails.com/learn-ruby-on-rails.html
-* "Foundation and Rails":http://railsapps.github.io/rails-foundation/ shows how to integrate Foundation
-* "Bootstrap and Rails":http://railsapps.github.io/rails-bootstrap/ shows to integrate Bootstrap
-* "OmniAuth and Rails":https://github.com/RailsApps/rails-omniauth uses OmniAuth for authentication
-* "Devise and Rails":https://github.com/RailsApps/rails-devise uses Devise for authentication
-
 h1. !http://railsapps.github.io/images/rails-36x36.jpg(Rails Application for Devise with RSpec and Cucumber)! Rails 3.2
 
 This rails3-bootstrap-devise-cancan example application is outdated and has been replaced! For a Rails 4.1 example application for Devise with authorization, see "rails-devise-pundit":https://github.com/RailsApps/rails-devise-pundit.
@@ -27,7 +8,6 @@ This Rails 3.2 example application shows how to use "Devise":https://github.com/
 * "CanCan":https://github.com/ryanb/cancan provides authorization for administrator access.
 * "Twitter Bootstrap":http://twitter.github.com/bootstrap/ is a front-end framework for CSS styling.
 
-!http://railsapps.github.io/images/rails3-bootstrap-devise-cancan.png(Rails Application for Devise with CanCan and Twitter Bootstrap)!
 
 h2. What Is Implemented -- and What Is Not
 
@@ -57,7 +37,7 @@ h3. Clone
 If you want to copy and customize the app with changes that are only useful for your own project, you can clone the GitHub repo. You'll need to search-and-replace the project name throughout the application. You probably should generate the app instead (see below). To clone:
 
 <pre>
-$ git clone git://github.com/RailsApps/rails3-bootstrap-devise-cancan.git
+$ git clone https://github.com/AlejandroFerroBejerano/rails_library.git
 </pre>
 
 You'll need "git":http://git-scm.com/ on your machine. See "Rails and Git":http://railsapps.github.io/rails-git.html.
@@ -69,86 +49,14 @@ If you want to use the project as a starter app, use the "Rails Composer":http:/
 To build the example application, run the command:
 
 <pre>
-$ rails new rails3-bootstrap-devise-cancan -m https://raw.github.com/RailsApps/rails-composer/master/composer-Rails3_2.rb -T
+$ rails new rails_library
 </pre>
 
-Use the @-T@ flag to skip Test::Unit files.
-
-The @$@ character indicates a shell prompt; don't include it when you run the command.
-
-This creates a new Rails app named @rails3-bootstrap-devise-cancan@ on your computer. You can use a different name if you wish.
-
-You'll see a prompt:
-
-<pre>
-question  Install an example application?
-      1)  I want to build my own application
-      2)  membership/subscription/saas
-      3)  rails-prelaunch-signup
-      4)  rails3-bootstrap-devise-cancan
-      5)  rails3-devise-rspec-cucumber
-      6)  rails3-mongoid-devise
-      7)  rails3-mongoid-omniauth
-      8)  rails3-subdomains
-</pre>
-
-Choose *rails3-bootstrap-devise-cancan*. The Rails Composer tool may give you other options (other choices may have been added since these notes were written).
-
-The application generator template will ask you for additional preferences:
-
-<pre>
- question  Web server for development?
-       1)  WEBrick (default)
-       2)  Thin
-       3)  Unicorn
-       4)  Puma
- question  Web server for production?
-       1)  Same as development
-       2)  Thin
-       3)  Unicorn
-       4)  Puma
- question  Template engine?
-       1)  ERB
-       2)  Haml
-       3)  Slim
-   extras  Set a robots.txt file to ban spiders? (y/n)
-   extras  Use or create a project-specific rvm gemset? (y/n)
-   extras  Create a GitHub repository? (y/n)
-</pre>
-
-h4. Web Servers
-
-We recommend Thin in development for speed and less noise in the log files.
-
-If you plan to deploy to Heroku, select Thin as your production webserver.
+This creates a new Rails app named @rails_library on your computer. You can use a different name if you wish.
 
 h4. Template Engine
 
 The example application uses the default "ERB" Rails template engine. Optionally, you can use another template engine, such as Haml or Slim. See instructions for "Haml and Rails":http://railsapps.github.io/rails-haml.html.
-
-h4. Other Choices
-
-Set a robots.txt file to ban spiders if you want to keep your new site out of Google search results.
-
-It is a good idea to use "rvm":https://rvm.io/, the Ruby Version Manager, and create a project-specific rvm gemset (not available on Windows). See "Installing Rails":http://railsapps.github.io/installing-rails.html.
-
-If you choose to create a GitHub repository, the generator will prompt you for a GitHub username and password.
-
-h4. Troubleshooting
-
-If you get an error "OpenSSL certificate verify failed" or "Gem::RemoteFetcher::FetchError: SSL_connect" see the article "OpenSSL errors and Rails":http://railsapps.github.io/openssl-certificate-verify-failed.html.
-
-If you get an error like this:
-
-<pre>
-Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
-    composer  Running 'after bundler' callbacks.
-The template [...] could not be loaded.
-Error: You have already activated ..., but your Gemfile requires ....
-Using bundle exec may solve this.
-</pre>
-
-It's due to conflicting gem versions. See the article "Rails Error: “You have already activated (…)”":http://railsapps.github.io/rails-error-you-have-already-activated.html.
 
 h3. Edit the README
 
@@ -213,9 +121,9 @@ Modify the file *config/application.yml*:
 GMAIL_USERNAME: Your_Username
 GMAIL_PASSWORD: Your_Password
 ADMIN_NAME: First User
-ADMIN_EMAIL: user@example.com
-ADMIN_PASSWORD: changeme
-ROLES: [admin, user, VIP]
+ADMIN_EMAIL: admin@example.com
+ADMIN_PASSWORD: administrator
+ROLES: [admin, manager, reader]
 </pre>
 
 Set the user name and password needed for the application to send email.
@@ -227,38 +135,6 @@ Specify roles in the configuration file. You will need an "admin" role. Change t
 All configuration values in the *config/application.yml* file are available anywhere in the application as environment variables. For example, @ENV["GMAIL_USERNAME"]@ will return the string "Your_Username".
 
 If you prefer, you can delete the *config/application.yml* file and set each value as an environment variable in the Unix shell.
-
-h3. Set Up a Database Seed File
-
-The *db/seeds.rb* file initializes the database with default values. To keep some data private, and consolidate configuration settings in a single location, we use the *config/application.yml* file to set environment variables and then use the environment variables in the *db/seeds.rb* file.
-
-<pre>
-puts 'ROLES'
-YAML.load(ENV['ROLES']).each do |role|
-  Role.find_or_create_by_name({ :name => role }, :without_protection => true)
-  puts 'role: ' << role
-end
-puts 'DEFAULT USERS'
-user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
-puts 'user: ' << user.name
-user.add_role :admin
-</pre>
-
-You can change the administrator name, email, and password in this file but it is better to make the changes in the *config/application.yml* file to keep the credentials private. If you decide to include your private password in the *db/seeds.rb* file, be sure to add the filename to your *.gitignore* file so that your password doesn't become available in your public GitHub repository.
-
-Note that it's not necessary to personalize the *db/seeds.rb* file before you deploy your app. You can deploy the app with an example user and then use the application's "Edit Account" feature to change name, email address, and password after you log in. Use this feature to log in as an administrator and change the user name and password to your own.
-
-The *db/seeds.rb* file reads a list of roles from the *config/application.yml* file and adds the roles to the database. In fact, any new role can be added to the roles datatable with a statement such @user.add_role :superhero@. Setting the roles in the *db/seeds.rb* file simply makes sure each role is listed and available should a user wish to change roles.
-
-You may wish to include additional sample users:
-
-<pre>
-user2 = User.find_or_create_by_email :name => 'Second User', :email => 'user2@example.com', :password => 'changeme', :password_confirmation => 'changeme'
-puts 'user: ' << user2.name
-user2.add_role :VIP
-</pre>
-
-This will add a second user to the database with a "VIP" role.
 
 h3. Set the Database
 
@@ -279,24 +155,6 @@ $ rake db:test:prepare
 
 If you’re not using "rvm":https://rvm.io/, the Ruby Version Manager, you should preface each rake command with @bundle exec@. You don’t need to use @bundle exec@ if you are using rvm version 1.11.0 or newer.
 
-h3. Change your Application's Secret Token
-
-If you've used the Rails Composer tool to generate the application, the application's secret token will be unique, just as with any Rails application generated with the @rails new@ command.
-
-However, if you've cloned the application directly from GitHub, it is crucial that you change the application's secret token before deploying your application in production mode. Otherwise, people could change their session information, and potentially access your site without permission. Your secret token should be at least 30 characters long and completely random.
-
-Get a unique secret token:
-
-<pre>
-rake secret
-</pre>
-
-Edit your *config/initializers/secret_token.rb* file to add the secret token:
-
-<pre>
-Rails3BootstrapDeviseCancan::Application.config.secret_token = '...some really long, random string...'
-</pre>
-
 h2. Test the App
 
 You can check that your application runs properly by entering the command:
@@ -307,8 +165,8 @@ To see your application in action, open a browser window and navigate to "http:/
 
 If you are using the default values from the *config/application.yml* file, you can sign in as the administrator using:
 
-* email: user@example.com
-* password: changeme
+* email: admin@example.com
+* password: administrator
 
 You'll see a navigation link for Admin. Clicking the link will display a page with a list of users at
 "http://localhost:3000/users":http://localhost:3000/users.
@@ -324,53 +182,6 @@ The second user will not see the Admin navigation link and will not be able to a
 Stop the server with Control-C.
 
 If you test the app by starting the web server and then leave the server running while you install new gems, you’ll have to restart the server to see any changes. The same is true for changes to configuration files in the config folder. This can be confusing to new Rails developers because you can change files in the app folders without restarting the server. Stop the server each time after testing and you will avoid this issue.
-
-h2. Deploy to Heroku
-
-For your convenience, here is a "Tutorial for Rails on Heroku":http://railsapps.github.io/rails-heroku-tutorial.html. Heroku provides low cost, easily configured Rails application hosting.
-
-Be sure to set up SSL before you make your application available in production. See the "Heroku documentation on SSL":https://devcenter.heroku.com/articles/ssl.
-
-Add this configuration parameter to the *config/application.rb* file:
-
-<pre>
-# Heroku requires this to be false
-config.assets.initialize_on_precompile=false
-</pre>
-
-Then precompile assets, commit to git, and push to Heroku:
-
-<pre>
-$ rake assets:precompile
-$ git add -A
-$ git commit -m "assets compiled for Heroku"
-$ git push heroku master
-</pre>
-
-You'll need to set the configuration values from the *config/application.yml* file as Heroku environment variables. See the article "Rails Environment Variables":http://railsapps.github.io/rails-environment-variables.html for more information.
-
-With the figaro gem, just run:
-
-<pre>
-rake figaro:heroku
-</pre>
-
-Alternatively, you can set Heroku environment variables directly with @heroku config:add@.
-
-<pre>
-$ heroku config:add GMAIL_USERNAME='myname@gmail.com' GMAIL_PASSWORD='secret'
-$ heroku config:add 'ROLES=[admin, user, VIP]'
-$ heroku config:add ADMIN_NAME='First User' ADMIN_EMAIL='user@example.com' ADMIN_PASSWORD='changeme'
-</pre>
-
-Complete Heroku deployment with:
-
-<pre>
-$ heroku run rake db:migrate
-$ heroku run rake db:seed
-</pre>
-
-See the "Tutorial for Rails on Heroku":http://railsapps.github.io/rails-heroku-tutorial.html for details.
 
 h2. Customizing
 
@@ -405,7 +216,7 @@ For a Devise introduction, Ryan Bates offers a "Railscast on Devise":http://rail
 
 h2. Issues
 
-Please create a "GitHub issue":https://github.com/RailsApps/rails3-bootstrap-devise-cancan/issues if you identify any problems or have suggestions for improvements.
+Please create a "GitHub issue":https://github.com/AlejandroFerroBejerano/rails_library.git if you identify any problems or have suggestions for improvements.
 
 h2. Where to Get Help
 
@@ -417,22 +228,43 @@ h2. Contributing
 
 If you make improvements to this application, please share with others.
 
-Send the author a message, create an "issue":https://github.com/RailsApps/rails3-bootstrap-devise-cancan/issues, or fork the project and submit a pull request.
+Send the author a message, create an "issue":https://github.com/AlejandroFerroBejerano/rails_library.git, or fork the project and submit a pull request.
 
 If you add functionality to this application, create an alternative implementation, or build an application that is similar, please contact me and I'll add a note to the README so that others can find your work.
 
 h2. Credits
 
-Daniel Kehoe implemented the application and wrote the tutorial.
+Daniel Kehoe implemented the first version of the aplication (only user model with devise).
+Alejandro Ferro Bejerano and Miguel Ángel Garrido Astilleros adapted this project to the specification of the practise subject "Web System Development"
 
-Is the app useful to you? Follow the project on Twitter: "@rails_apps":http://twitter.com/rails_apps
-and tweet some praise. I'd love to know you were helped out by what I've put together.
+h2. Web System Development specification
 
-h2. MIT License
+h3. Laboratory Assignment
 
-"MIT License":http://www.opensource.org/licenses/mit-license
+The main goal of this exercise is to develop a web application with Ruby on Rails in which we are going to implement a web system for managing a library.
+Through the exercise solving is advisable to use software development good practices, like version control software (like git or mercurial), code hosting (like github or bitbucket) or TDD (Test Driven Development, using RSpec).
 
-Copyright © 2012-13 Daniel Kehoe
+The students must handle the solution to the laboratory professor and show him the system
+working.
+
+h3. Library Web App
+
+We want to develop a Library Management Web Application in Ruby on Rails. This app should fulfil the following requirements:
+
+- It should be accessible from any web browser
+- Application should allow the user the management (CRUD operations) of:
+    * Books and publications
+    * Publications Borrowing and Circulation
+    * Readers and Users
+- The app should have a User Management module, which permits users to access the system by authenticating themselves and determining user roles:
+    * Administrator: Can manage users (admins, managers and readers), roles, books and loans.
+    * Manager: Can manage readers, books and loans.
+    * Reader: Can list its current and past loans, and also can manage a wish list.
+- Publications:
+    * Can be borrowed by only one reader if they are physical books
+    * Can be borrowed by several readers if they are in electronic form
+    * We should keep a history of loans
+You are asked to develop a web app to solve the proposed problem.
 
 h2. Useful Links
 
