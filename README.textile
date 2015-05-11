@@ -198,53 +198,6 @@ Stop the server with Control-C.
 
 If you test the app by starting the web server and then leave the server running while you install new gems, you’ll have to restart the server to see any changes. The same is true for changes to configuration files in the config folder. This can be confusing to new Rails developers because you can change files in the app folders without restarting the server. Stop the server each time after testing and you will avoid this issue.
 
-h2. Deploy to Heroku
-
-For your convenience, here is a "Tutorial for Rails on Heroku":http://railsapps.github.io/rails-heroku-tutorial.html. Heroku provides low cost, easily configured Rails application hosting.
-
-Be sure to set up SSL before you make your application available in production. See the "Heroku documentation on SSL":https://devcenter.heroku.com/articles/ssl.
-
-Add this configuration parameter to the *config/application.rb* file:
-
-<pre>
-# Heroku requires this to be false
-config.assets.initialize_on_precompile=false
-</pre>
-
-Then precompile assets, commit to git, and push to Heroku:
-
-<pre>
-$ rake assets:precompile
-$ git add -A
-$ git commit -m "assets compiled for Heroku"
-$ git push heroku master
-</pre>
-
-You'll need to set the configuration values from the *config/application.yml* file as Heroku environment variables. See the article "Rails Environment Variables":http://railsapps.github.io/rails-environment-variables.html for more information.
-
-With the figaro gem, just run:
-
-<pre>
-rake figaro:heroku
-</pre>
-
-Alternatively, you can set Heroku environment variables directly with @heroku config:add@.
-
-<pre>
-$ heroku config:add GMAIL_USERNAME='myname@gmail.com' GMAIL_PASSWORD='secret'
-$ heroku config:add 'ROLES=[admin, user, VIP]'
-$ heroku config:add ADMIN_NAME='First User' ADMIN_EMAIL='user@example.com' ADMIN_PASSWORD='changeme'
-</pre>
-
-Complete Heroku deployment with:
-
-<pre>
-$ heroku run rake db:migrate
-$ heroku run rake db:seed
-</pre>
-
-See the "Tutorial for Rails on Heroku":http://railsapps.github.io/rails-heroku-tutorial.html for details.
-
 h2. Customizing
 
 This application provides no useful functionality apart from demonstrating Devise with CanCan and Twitter Bootstrap working together on Rails 3. Add any models, controllers, and views that you need.
@@ -278,7 +231,7 @@ For a Devise introduction, Ryan Bates offers a "Railscast on Devise":http://rail
 
 h2. Issues
 
-Please create a "GitHub issue":https://github.com/RailsApps/rails3-bootstrap-devise-cancan/issues if you identify any problems or have suggestions for improvements.
+Please create a "GitHub issue":https://github.com/AlejandroFerroBejerano/rails_library.git if you identify any problems or have suggestions for improvements.
 
 h2. Where to Get Help
 
@@ -290,7 +243,7 @@ h2. Contributing
 
 If you make improvements to this application, please share with others.
 
-Send the author a message, create an "issue":https://github.com/RailsApps/rails3-bootstrap-devise-cancan/issues, or fork the project and submit a pull request.
+Send the author a message, create an "issue":https://github.com/AlejandroFerroBejerano/rails_library.git, or fork the project and submit a pull request.
 
 If you add functionality to this application, create an alternative implementation, or build an application that is similar, please contact me and I'll add a note to the README so that others can find your work.
 
