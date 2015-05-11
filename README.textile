@@ -1,22 +1,3 @@
-
-For a Rails 4.1 example application for Devise with authorization, plus Bootstrap, see:
-
-* "rails-devise-pundit":https://github.com/RailsApps/rails-devise-pundit
-
-Tutorials are available for Devise:
-
-* "Rails Devise Tutorial":http://railsapps.github.io/rails-devise/
-
-h4. Similar Examples and Tutorials
-
-This is one in a series of Rails example apps and tutorials from the "RailsApps Project":http://railsapps.github.io/. See a list of additional "Rails examples, tutorials, and starter apps":http://railsapps.github.io/rails-examples-tutorials.html. Related example applications may be useful:
-
-* "Learn Rails":https://github.com/RailsApps/learn-rails companion to the book "Learn Ruby on Rails":http://learn-rails.com/learn-ruby-on-rails.html
-* "Foundation and Rails":http://railsapps.github.io/rails-foundation/ shows how to integrate Foundation
-* "Bootstrap and Rails":http://railsapps.github.io/rails-bootstrap/ shows to integrate Bootstrap
-* "OmniAuth and Rails":https://github.com/RailsApps/rails-omniauth uses OmniAuth for authentication
-* "Devise and Rails":https://github.com/RailsApps/rails-devise uses Devise for authentication
-
 h1. !http://railsapps.github.io/images/rails-36x36.jpg(Rails Application for Devise with RSpec and Cucumber)! Rails 3.2
 
 This rails3-bootstrap-devise-cancan example application is outdated and has been replaced! For a Rails 4.1 example application for Devise with authorization, see "rails-devise-pundit":https://github.com/RailsApps/rails-devise-pundit.
@@ -57,7 +38,7 @@ h3. Clone
 If you want to copy and customize the app with changes that are only useful for your own project, you can clone the GitHub repo. You'll need to search-and-replace the project name throughout the application. You probably should generate the app instead (see below). To clone:
 
 <pre>
-$ git clone git://github.com/RailsApps/rails3-bootstrap-devise-cancan.git
+$ git clone https://github.com/AlejandroFerroBejerano/rails_library.git
 </pre>
 
 You'll need "git":http://git-scm.com/ on your machine. See "Rails and Git":http://railsapps.github.io/rails-git.html.
@@ -69,52 +50,10 @@ If you want to use the project as a starter app, use the "Rails Composer":http:/
 To build the example application, run the command:
 
 <pre>
-$ rails new rails3-bootstrap-devise-cancan -m https://raw.github.com/RailsApps/rails-composer/master/composer-Rails3_2.rb -T
+$ rails new rails_library
 </pre>
 
-Use the @-T@ flag to skip Test::Unit files.
-
-The @$@ character indicates a shell prompt; don't include it when you run the command.
-
-This creates a new Rails app named @rails3-bootstrap-devise-cancan@ on your computer. You can use a different name if you wish.
-
-You'll see a prompt:
-
-<pre>
-question  Install an example application?
-      1)  I want to build my own application
-      2)  membership/subscription/saas
-      3)  rails-prelaunch-signup
-      4)  rails3-bootstrap-devise-cancan
-      5)  rails3-devise-rspec-cucumber
-      6)  rails3-mongoid-devise
-      7)  rails3-mongoid-omniauth
-      8)  rails3-subdomains
-</pre>
-
-Choose *rails3-bootstrap-devise-cancan*. The Rails Composer tool may give you other options (other choices may have been added since these notes were written).
-
-The application generator template will ask you for additional preferences:
-
-<pre>
- question  Web server for development?
-       1)  WEBrick (default)
-       2)  Thin
-       3)  Unicorn
-       4)  Puma
- question  Web server for production?
-       1)  Same as development
-       2)  Thin
-       3)  Unicorn
-       4)  Puma
- question  Template engine?
-       1)  ERB
-       2)  Haml
-       3)  Slim
-   extras  Set a robots.txt file to ban spiders? (y/n)
-   extras  Use or create a project-specific rvm gemset? (y/n)
-   extras  Create a GitHub repository? (y/n)
-</pre>
+This creates a new Rails app named @rails_library on your computer. You can use a different name if you wish.
 
 h4. Web Servers
 
